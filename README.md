@@ -1,6 +1,6 @@
 # sudoku
 
-A simple basic sudoku solver in Crystal. Implements brute-force with backtracking.
+A simple sudoku solver in Crystal. Implements brute-force with backtracking.
 
 ## Installation
 
