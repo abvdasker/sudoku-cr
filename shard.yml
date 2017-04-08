@@ -1,0 +1,9 @@
+name: sudoku-cr
+version: 0.2.0
+
+authors:
+  - abvdasker <hal.c.rogers@gmail.com>
+
+crystal: 0.21.1
+
+license: MIT
