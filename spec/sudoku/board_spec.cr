@@ -1,5 +1,7 @@
 require "../spec_helper.cr"
 
+include Sudoku
+
 describe Board do
 
   describe "#initialize" do

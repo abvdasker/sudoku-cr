@@ -1,5 +1,7 @@
 require "../spec_helper"
 
+include Sudoku
+
 describe Solver do
 
   describe "#solve" do
