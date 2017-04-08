@@ -1,5 +1,7 @@
 class Board
 
+  getter :board
+
   def initialize(input : Array(Array(Int32 | Nil)))
     @board = input
   end
@@ -29,6 +31,4 @@ class Board
       end
     end
   end
-
-  private getter :board
 end
