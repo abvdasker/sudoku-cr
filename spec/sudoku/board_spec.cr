@@ -10,6 +10,12 @@ describe Board do
         Board.new(input)
       end
     end
+
+    it "does not raise an error" do
+      input = BoardSpecHelper.build_input
+
+      Board.new(input)
+    end
   end
 
   describe "#duplicate" do
