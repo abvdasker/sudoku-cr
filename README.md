@@ -1,6 +1,6 @@
 # sudoku
 
-TODO: Write a description here
+A simple basic sudoku solver in Crystal. Implements brute-force with backtracking.
 
 ## Installation
 
@@ -18,20 +18,18 @@ dependencies:
 require "sudoku"
 ```
 
-TODO: Write usage instructions here
+```
+sudoku = [
+  [5, 3, nil, nil, 7, nil, nil, nil, nil],
+  [6, nil, nil, 1, 9, 5, nil, nil, nil],
+  [nil, 9, 8, nil, nil, nil, nil, 6, nil],
+  [8, nil, nil, nil, 6, nil, nil, nil, 3],
+  [4, nil, nil, 8, nil, 3, nil, nil, 1],
+  [7, nil, nil, nil, 2, nil, nil, nil, 6],
+  [nil, 6, nil, nil, nil, nil, 2, 8, nil],
+  [nil, nil, nil, 4, 1, 9, nil, nil, 5],
+  [nil, nil, nil, nil, 8, nil, nil, 7, 9]
+]
 
-## Development
-
-TODO: Write development instructions here
-
-## Contributing
-
-1. Fork it ( https://github.com/[your-github-name]/sudoku/fork )
-2. Create your feature branch (git checkout -b my-new-feature)
-3. Commit your changes (git commit -am 'Add some feature')
-4. Push to the branch (git push origin my-new-feature)
-5. Create a new Pull Request
-
-## Contributors
-
-- [[your-github-name]](https://github.com/[your-github-name]) abvdasker - creator, maintainer
+solved_sudoku = Sudoku::Board.new(sudoku).solve
+```
