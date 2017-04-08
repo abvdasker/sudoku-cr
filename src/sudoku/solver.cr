@@ -1,4 +1,6 @@
 class Solver
+  getter :board
+
   def initialize(board : Board)
     @board = board
   end
@@ -24,7 +26,7 @@ class Solver
       end
 
       current_entry = new_board.get(current_row, current_column)
-      if current_entry >= 9
+      if !current_entry.nil? && current_entry >= 9
         new_board.set(current_row, current_column, nil)
         direction = :backward
         current_row, current_column = backtrack(new_board, current_row, current_column)
@@ -47,7 +49,8 @@ class Solver
     new_board
   end
 
-  def find_next_possible(new_board, current_entry, current_row, current_column)
+  private def find_next_possible(new_board, current_entry, current_row, current_column)
+    current_entry ||= 0
     available = new_board.find_possible(current_row, current_column)
     available = available.select { |number| number > current_entry }
     if available.empty?
@@ -57,7 +60,7 @@ class Solver
     end
   end
 
-  def advance(new_board, current_row, current_column)
+  private def advance(new_board, current_row, current_column)
     current_column += 1
     if current_column == new_board.size
       current_row += 1
@@ -66,7 +69,7 @@ class Solver
     return [current_row, current_column]
   end
 
-  def backtrack(new_board, current_row, current_column)
+  private def backtrack(new_board, current_row, current_column)
     current_column -= 1
     if current_column < 0
       current_row -= 1

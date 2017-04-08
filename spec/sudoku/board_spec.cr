@@ -1,6 +1,17 @@
 require "../spec_helper.cr"
 
 describe Board do
+
+  describe "#initialize" do
+    it "raises an error" do
+      input = BoardSpecHelper.build_input_rows_wrong
+
+      expect_raises(Board::BoardDimensionsError, /incorrect number of rows/) do
+        Board.new(input)
+      end
+    end
+  end
+
   describe "#duplicate" do
     it "creates a new copy of the input board" do
       input = BoardSpecHelper.build_input
@@ -60,11 +71,23 @@ describe Board do
     end
 
     it "returns true" do
+      valid_input = BoardSpecHelper.build_valid_input
+      board = Board.new(valid_input)
+
+      board.is_valid?.should be_true
     end
   end
+
 end
 
 class BoardSpecHelper
+
+  def self.build_input_rows_wrong : Array(Array(Int32 | Nil))
+    [
+      [nil, 1]
+    ]
+  end
+  
   def self.build_input : Array(Array(Int32 | Nil))
     [
       [1, 2, nil, nil, nil, nil, 9, nil, 3],
@@ -90,6 +113,11 @@ class BoardSpecHelper
       [9, 6, 1, 5, 3, 7, 2, 8, 4],
       [2, 8, 7, 4, 1, 9, 6, 3, 5],
       [3, 4, 5, 2, 8, 6, 1, 7, 9]
-    ]
+    ].map do |row|
+      row.map do |entry|
+        entry.as(Int32 | Nil)
+      end
+    end
   end
+
 end
