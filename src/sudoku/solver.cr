@@ -4,6 +4,10 @@ class Solver
 
   getter :board
 
+  def initialize(board : Array(Array(Int32 | Nil)))
+    @board = Board.new(board)
+  end
+
   def initialize(board : Board)
     @board = board
   end
