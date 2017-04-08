@@ -9,7 +9,7 @@ Add this to your application's `shard.yml`:
 ```yaml
 dependencies:
   sudoku:
-    github: [your-github-name]/sudoku
+    github: abvdasker/sudoku-cr
 ```
 
 ## Usage
