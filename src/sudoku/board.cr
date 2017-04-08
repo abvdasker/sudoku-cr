@@ -12,6 +12,10 @@ class Board
     @original_input = duplicate_data
   end
 
+  def solve
+    Solver.new(self).solve
+  end
+
   def size
     board.size
   end
