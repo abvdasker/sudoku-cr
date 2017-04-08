@@ -1,4 +1,7 @@
 class Solver
+
+  class ImpossibleError < Exception; end
+
   getter :board
 
   def initialize(board : Board)
@@ -16,6 +19,9 @@ class Solver
     current_row = 0
     current_column = 0
     while current_row < new_board.size && current_column < new_board.size
+      if current_row == 0 && current_column == 0 && direction == :backward
+        raise ImpossibleError.new("board cannot be solved")
+      end
       if new_board.was_input?(current_row, current_column)
         if direction == :forward
           current_row, current_column = advance(new_board, current_row, current_column)
