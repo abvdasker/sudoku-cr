@@ -16,9 +16,9 @@ dependencies:
 
 ```crystal
 require "sudoku"
-```
 
-```
+include Sudoku
+
 sudoku = [
   [5, 3, nil, nil, 7, nil, nil, nil, nil],
   [6, nil, nil, 1, 9, 5, nil, nil, nil],
@@ -31,5 +31,20 @@ sudoku = [
   [nil, nil, nil, nil, 8, nil, nil, 7, 9]
 ]
 
-solved_sudoku = Sudoku::Board.new(sudoku).solve
+solved_sudoku = Board.new(sudoku).solve
+
+puts solved_sudoku.inspect # prints:
+#
+# 534|678|912
+# 672|195|348
+# 198|342|567
+# ------------
+# 859|761|423
+# 426|853|791
+# 713|924|856
+# ------------
+# 961|537|284
+# 287|419|635
+# 345|286|179
+
 ```
