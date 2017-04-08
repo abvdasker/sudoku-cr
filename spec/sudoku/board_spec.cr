@@ -41,12 +41,26 @@ describe Board do
   end
 
   describe "#set" do
-    input = BoardSpecHelper.build_input
-    board = Board.new(input)
+    it "sets the value in the board" do
+      input = BoardSpecHelper.build_input
+      board = Board.new(input)
 
-    board.set(2, 4, 8)
-    
-    board.board[2][4].should eq 8
+      board.set(2, 4, 8)
+
+      board.board[2][4].should eq 8
+    end
+  end
+
+  describe "#is_valid?" do
+    it "return false" do
+      input = BoardSpecHelper.build_input
+      board = Board.new(input)
+
+      board.is_valid?.should be_false
+    end
+
+    it "returns true" do
+    end
   end
 end
 
@@ -62,6 +76,20 @@ class BoardSpecHelper
       [3, nil, 2, nil, nil, nil, nil, nil, 9],
       [nil, nil, nil, nil, 5, nil, nil, nil, nil],
       [nil, nil, nil, nil, nil, nil, 7, nil, nil],
+    ]
+  end
+
+  def self.build_valid_input : Array(Array(Int32 | Nil))
+    [
+      [5, 3, 4, 6, 7, 8, 9, 1, 2],
+      [6, 7, 2, 1, 9, 5, 3, 4, 8],
+      [1, 9, 8, 3, 4, 2, 5, 6, 7],
+      [8, 5, 9, 7, 6, 1, 4, 2, 3],
+      [4, 2, 6, 8, 5, 3, 7, 9, 1],
+      [7, 1, 3, 9, 2, 4, 8, 5, 6],
+      [9, 6, 1, 5, 3, 7, 2, 8, 4],
+      [2, 8, 7, 4, 1, 9, 6, 3, 5],
+      [3, 4, 5, 2, 8, 6, 1, 7, 9]
     ]
   end
 end
