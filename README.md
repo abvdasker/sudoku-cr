@@ -8,7 +8,7 @@ Add this to your application's `shard.yml`:
 
 ```yaml
 dependencies:
-  sudoku:
+  sudoku-cr:
     github: abvdasker/sudoku-cr
 ```
 
